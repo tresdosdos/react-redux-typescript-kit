@@ -17,3 +17,8 @@
 - Implemented lazy-loading routing
 - All components are written on React.FC and memoized
 - Fully typed react-redux application with high scalability
+
+## How to install
+- `git clone https://github.com/tresdosdos/react-redux-typescript-kit`
+- `yarn install`
+- `yarn start` or `yarn build`
