@@ -1,7 +1,7 @@
 import axios, {AxiosRequestConfig, AxiosResponse} from 'axios';
 
 export class HttpService {
-  public get<T>(url: string, options?: AxiosRequestConfig): Promise<AxiosResponse<T>> {
+  public static get<T>(url: string, options?: AxiosRequestConfig): Promise<AxiosResponse<T>> {
     return this.makeRequest<T>({
       url,
       method: 'get',
@@ -9,7 +9,7 @@ export class HttpService {
     });
   }
 
-  public post<T>(url: string, data?: object, options?: AxiosRequestConfig): Promise<AxiosResponse<T>> {
+  public static post<T>(url: string, data?: object, options?: AxiosRequestConfig): Promise<AxiosResponse<T>> {
     return this.makeRequest<T>({
       url,
       method: 'post',
@@ -18,7 +18,7 @@ export class HttpService {
     });
   }
 
-  public put<T>(url: string, data?: object, options?: AxiosRequestConfig): Promise<AxiosResponse<T>> {
+  public static put<T>(url: string, data?: object, options?: AxiosRequestConfig): Promise<AxiosResponse<T>> {
     return this.makeRequest<T>({
       url,
       method: 'put',
@@ -27,7 +27,7 @@ export class HttpService {
     });
   }
 
-  public delete<T>(url: string, data?: object, options?: AxiosRequestConfig): Promise<AxiosResponse<T>> {
+  public static delete<T>(url: string, data?: object, options?: AxiosRequestConfig): Promise<AxiosResponse<T>> {
     return this.makeRequest<T>({
       url,
       method: 'delete',
@@ -36,12 +36,10 @@ export class HttpService {
     });
   }
 
-  private makeRequest<T = any>(config: AxiosRequestConfig): Promise<AxiosResponse<T>> {
+  private static makeRequest<T = any>(config: AxiosRequestConfig): Promise<AxiosResponse<T>> {
     const source = axios.CancelToken.source();
     const cancelToken = source.token;
 
     return axios.request({...config, cancelToken});
   }
 }
-
-export const httpService = new HttpService();
