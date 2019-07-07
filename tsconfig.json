@@ -26,7 +26,8 @@
       "reducers/*": ["reducers/*"],
       "layouts/*": ["layouts/*"],
       "services/*": ["services/*"],
-      "css/*": ["css/*"]
+      "css/*": ["css/*"],
+      "env": ["env"]
     }
   },
   "include": [
