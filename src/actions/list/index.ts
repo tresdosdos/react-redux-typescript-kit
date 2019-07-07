@@ -1,11 +1,11 @@
-import {IDeleteListAction, ISetListAction} from './interfaces';
-import {ListActionTypes} from 'reducers/list/interfaces';
-import {httpService} from 'services/http';
-import {IItem} from 'components/Item/interfaces';
 import {Dispatch} from 'redux';
+import {ListActionTypes} from 'reducers/list/interfaces';
+import {IItem} from 'components/Item/interfaces';
+import {HttpService} from 'services/http';
+import {IDeleteListAction, ISetListAction} from './interfaces';
 
 export const fetchList = () => async (dispatch: Dispatch): Promise<void> => {
-  const res = await httpService.get<IItem[]>('https://jsonplaceholder.typicode.com/todos');
+  const res = await HttpService.get<IItem[]>('https://jsonplaceholder.typicode.com/todos');
 
   dispatch(setList(res.data));
 };
